@@ -1,0 +1,21 @@
+{
+    "name": "cordova-plugin-amazon-iapv2",
+    "version": "1.0.0",
+    "description": "Amazon In-App Purchases Plugin",
+    "cordova": {
+        "id": "cordova-plugin-amazon-iapv2",
+        "platforms": [
+            "amazon-fireos",
+            "android"
+        ]
+    },
+    "keywords": [
+        "ecosystem:cordova",
+        "cordova-amazon-fireos",
+        "cordova-android",
+        "in-app-purchases"
+    ],
+    "author": "",
+    "license": "Apache-2.0",
+    "repository": "https://github.com/AnouarMc/cordova-plugin-amazon-iapv2"
+}

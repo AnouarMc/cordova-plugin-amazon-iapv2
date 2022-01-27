@@ -1,0 +1,76 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ Copyright 2014 Amazon.com,
+ Inc. or its affiliates. All Rights Reserved.
+
+ Licensed under the Apache License, Version 2.0 (the
+ "License"). You may not use this file except in compliance
+ with the License. A copy of the License is located at
+
+ http://aws.amazon.com/apache2.0/
+
+ or in the "license" file accompanying this file. This file is
+ distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ CONDITIONS OF ANY KIND, either express or implied. See the
+ License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-amazon-iapv2"
+    version="1.0.0">
+    <name>AmazonIapV2</name>
+
+    <js-module src="www/AmazonIapV2.js" name="AmazonIapV2">
+            <clobbers target="window.AmazonIapV2" />
+    </js-module>
+
+   <!-- amazon-fireos -->
+    <platform name="amazon-fireos">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="AmazonIapV2Plugin" >
+                <param name="android-package" value="com.amazon.device.iap.cpt.AmazonIapV2Plugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <receiver android:name="com.amazon.device.iap.ResponseReceiver"><intent-filter><action android:name="com.amazon.inapp.purchasing.NOTIFY" android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY"/>
+                            </intent-filter>
+                        </receiver>
+                    
+        </config-file>
+    
+        <source-file src="src/amazon/AmazonIapV2Plugin.java" target-dir="src/com/amazon/device/iap/cpt" />
+        <source-file src="src/amazon/AmazonIapV2JavaControllerImpl.java" target-dir="src/com/amazon/device/iap/cpt" />
+        	<source-file src="libs/AmazonCptPluginsUtils-1.0.jar" target-dir="libs" />
+        	<source-file src="libs/AmazonIapV2JavaService-1.0.jar" target-dir="libs" />
+        	<source-file src="libs/gson-2.2.4.jar" target-dir="libs" />
+        	<source-file src="libs/in-app-purchasing-2.0.76.jar" target-dir="libs" />
+    </platform>
+
+   <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="AmazonIapV2Plugin" >
+                <param name="android-package" value="com.amazon.device.iap.cpt.AmazonIapV2Plugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <receiver android:name="com.amazon.device.iap.ResponseReceiver"><intent-filter><action android:name="com.amazon.inapp.purchasing.NOTIFY" android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY"/>
+                            </intent-filter>
+                        </receiver>
+                    
+        </config-file>
+    
+        <source-file src="src/amazon/AmazonIapV2Plugin.java" target-dir="src/com/amazon/device/iap/cpt" />
+        <source-file src="src/android/AmazonIapV2JavaControllerImpl.java" target-dir="src/com/amazon/device/iap/cpt" />
+        	<source-file src="libs/AmazonCptPluginsUtils-1.0.jar" target-dir="libs" />
+        	<source-file src="libs/AmazonIapV2JavaService-1.0.jar" target-dir="libs" />
+        	<source-file src="libs/gson-2.2.4.jar" target-dir="libs" />
+        	<source-file src="libs/in-app-purchasing-2.0.76.jar" target-dir="libs" />
+    </platform>
+</plugin>
